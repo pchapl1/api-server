@@ -8,4 +8,6 @@ const PORT = process.env.PORT || 3002;
 
 sequelize.sync().then(()=>{
     server.start(PORT);
+}).catch(error=>{
+    console.log('connection error: ', error);
 })

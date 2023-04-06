@@ -1,5 +1,4 @@
 const express = require('express');
-const { NUMBER } = require('sequelize');
 const foodRouter = express.Router();
 const { Food } = require('../models/food');
 
@@ -17,15 +16,13 @@ async function readAllFood(req, res, next) {
 
 async function readOneFood(req, res, next) {
     let id = req.params.id;
-    console.log("id: ", id)
     let data = await Food.findByPk(id);
-    console.log(data)
     res.json(data);
 }
 
 async function createFood(req, res, next) {
     const food = await Food.create(req.body);
-    res.json(food);
+    res.json(food).status(200);
 }
 
 async function updateFood(req, res, next) {

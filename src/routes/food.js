@@ -1,5 +1,4 @@
 const express = require('express');
-const { NUMBER } = require('sequelize');
 const foodRouter = express.Router();
 const { Food } = require('../models/food');
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --coverage",
+    "test": "jest --verbose --coverage --detectOpenHandles",
     "start": "npm start"
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "pg": "^8.10.0",
     "sequelize": "^6.30.0",
     "sqlite": "^4.1.2",
-    "sqlite3": "^5.1.6"
+    "sqlite3": "^5.1.6",
+    "supertest": "^6.3.3"
   }
 }

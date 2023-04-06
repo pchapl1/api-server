@@ -9,6 +9,6 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 // provide your connection string
 // const sequelize = new Sequelize(SQL_URL);
-const sequelize = new Sequelize("sqlite::memory:")
+const sequelize = new Sequelize("sqlite:memory:")
 
 module.exports = {sequelize, DataTypes};

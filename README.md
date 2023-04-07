@@ -23,4 +23,8 @@ lab 4 info:
 
 Partner comments by Nate Brown
 
-Ran tests and 2/3 pass, 1 skipped. Tests do not cover all CRUD operations. Server test suite should be expanded, add test coverage for logger and validator modules. 
+- Ran tests and 2/3 pass, 1 skipped. Tests do not cover all CRUD operations, expand server test suite
+
+- Wrote tests for logger and validator and put them in my PR
+
+- PR link here [https://github.com/pchapl1/api-server/pull/7]

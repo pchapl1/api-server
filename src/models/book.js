@@ -2,7 +2,7 @@
 
 const { DataTypes } = require('sequelize');
 
-const Book = (sequelize) => sequelize.define({
+const Book = (sequelize) => sequelize.define("Book", {
 
     title: {
         type: DataTypes.STRING,

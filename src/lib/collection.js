@@ -6,7 +6,8 @@ class Collection {
         this.model = model;
     }
 
-    async read(id, option) {
+    async read(id, options) {
+
         try {
             if (id) {
                 return await this.model.findOne({ where: {id}, ...options});
@@ -43,6 +44,7 @@ class Collection {
 
     async delete(id) {
         try {
+            console.log("id: ",id)
             let number = await this.model.destroy({ where: {id}} );
             return number;
         } catch (error) {
@@ -52,4 +54,4 @@ class Collection {
 
 }
 
-module.export = Collection;
+module.exports = Collection;

@@ -2,8 +2,9 @@ const server = require('../src/server');
 const supertest = require('supertest');
 const request = supertest(server.app);
 const {sequelize} = require('../src/models/index');
-const e = require('express');
-const { DESCRIBE } = require('sequelize/types/query-types');
+
+let authorId = null;
+let bookId = null;
 
 // have to initialize the db before the tests
 beforeAll(async()=>{
@@ -15,7 +16,37 @@ afterAll(async()=>{
     await sequelize.drop()
 })
 
-describe('testing data models')
+describe('testing data models', ()=> {
+    test('should return a 404 error', async () => {
+        const response = await request.get('/nonexistent');
+        expect(response.status).toBe(404);
+    });
+
+    test("404 for bad method", async ()=> {
+        const response = await request.patch('/food');
+        expect(response.status).toEqual(404);
+    })
+
+    // test('create author', async () => {
+    //     let mockObj = {
+    //         firstName: "david",
+    //         lastName: "goggins",
+    //         age: 33
+    //     }
+    //     const response = await request.post('/food').send(mockObj)
+    //     console.log(response)
+    //     authorId = response.id
+    //     expect(response.status).toEqual(200);
+    // })
+
+    xtest('get allFood should return 200', async () => {
+        const response = await request.get('/food');
+        expect(response.status).toEqual(200);
+        expect(Array.isArray(response.body)).toBeTruthy();
+    })
+
+})
+
 
 // describe('GET bad route', () => {
 //     test('should return a 404 error', async () => {
